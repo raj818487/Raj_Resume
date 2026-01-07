@@ -45,62 +45,33 @@ document.addEventListener("DOMContentLoaded", function () {
       const pageWidth = 210; // A4 width in mm
       const pageHeight = 297; // A4 height in mm
 
-      // First page
-      const page1 = document.getElementById("resume-page1");
-      const canvas1 = await html2canvas(page1, {
+      // Get the single page resume content
+      const resumeContent = document.getElementById("resume-content");
+      const canvas = await html2canvas(resumeContent, {
         scale: 2,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
         allowTaint: true,
         letterRendering: true,
-        width: page1.scrollWidth,
-        height: page1.scrollHeight,
+        width: resumeContent.scrollWidth,
+        height: resumeContent.scrollHeight,
       });
 
       // Fit to A4 page size while maintaining aspect ratio
       const imgWidth = pageWidth;
-      const imgHeight = (canvas1.height * pageWidth) / canvas1.width;
+      const imgHeight = (canvas.height * pageWidth) / canvas.width;
       
       // If height exceeds A4 page, scale to fit
       let finalWidth = imgWidth;
       let finalHeight = imgHeight;
       if (imgHeight > pageHeight) {
         finalHeight = pageHeight;
-        finalWidth = (canvas1.width * pageHeight) / canvas1.height;
+        finalWidth = (canvas.width * pageHeight) / canvas.height;
       }
 
-      const imgData1 = canvas1.toDataURL("image/png", 1.0);
-      pdf.addImage(imgData1, "PNG", 0, 0, finalWidth, finalHeight);
-
-      // Second page
-      const page2 = document.getElementById("resume-page2");
-      const canvas2 = await html2canvas(page2, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: "#ffffff",
-        allowTaint: true,
-        letterRendering: true,
-        width: page2.scrollWidth,
-        height: page2.scrollHeight,
-      });
-
-      const imgData2 = canvas2.toDataURL("image/png", 1.0);
-      pdf.addPage();
-      
-      // Calculate dimensions for page 2
-      const imgWidth2 = pageWidth;
-      const imgHeight2 = (canvas2.height * pageWidth) / canvas2.width;
-      
-      let finalWidth2 = imgWidth2;
-      let finalHeight2 = imgHeight2;
-      if (imgHeight2 > pageHeight) {
-        finalHeight2 = pageHeight;
-        finalWidth2 = (canvas2.width * pageHeight) / canvas2.height;
-      }
-      
-      pdf.addImage(imgData2, "PNG", 0, 0, finalWidth2, finalHeight2);
+      const imgData = canvas.toDataURL("image/png", 1.0);
+      pdf.addImage(imgData, "PNG", 0, 0, finalWidth, finalHeight);
 
       // Save PDF
       pdf.save("Parmar_Raj_Resume.pdf");
@@ -116,54 +87,31 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       showLoading();
 
-      const page1 = document.getElementById("resume-page1");
-      const page2 = document.getElementById("resume-page2");
+      const resumeContent = document.getElementById("resume-content");
 
-      // Generate first page JPEG
-      const canvas1 = await html2canvas(page1, {
+      // Generate JPEG
+      const canvas = await html2canvas(resumeContent, {
         scale: 2,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
         allowTaint: true,
         letterRendering: true,
-        width: page1.scrollWidth,
-        height: page1.scrollHeight,
+        width: resumeContent.scrollWidth,
+        height: resumeContent.scrollHeight,
       });
 
-      // Generate second page JPEG
-      const canvas2 = await html2canvas(page2, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: "#ffffff",
-        allowTaint: true,
-        letterRendering: true,
-        width: page2.scrollWidth,
-        height: page2.scrollHeight,
-      });
+      // Create download link
+      const link = document.createElement("a");
+      link.download = "Parmar_Raj_Resume.jpg";
+      link.href = canvas.toDataURL("image/jpeg", 1.0);
 
-      // Create download links for both pages
-      const link1 = document.createElement("a");
-      link1.download = "Parmar_Raj_Resume_Page1.jpg";
-      link1.href = canvas1.toDataURL("image/jpeg", 1.0);
-
-      const link2 = document.createElement("a");
-      link2.download = "Parmar_Raj_Resume_Page2.jpg";
-      link2.href = canvas2.toDataURL("image/jpeg", 1.0);
-
-      // Trigger downloads
-      document.body.appendChild(link1);
-      link1.click();
-      document.body.removeChild(link1);
-
-      // Small delay between downloads
-      setTimeout(() => {
-        document.body.appendChild(link2);
-        link2.click();
-        document.body.removeChild(link2);
-        hideLoading();
-      }, 500);
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      hideLoading();
     } catch (error) {
       console.error("Error generating JPEG:", error);
       hideLoading();
