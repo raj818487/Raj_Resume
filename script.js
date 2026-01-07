@@ -126,4 +126,3 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelector('.download-btn[onclick="downloadJPEG()"]')
     .addEventListener("click", downloadJPEG);
 });
-
