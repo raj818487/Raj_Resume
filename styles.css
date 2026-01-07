@@ -16,15 +16,15 @@ body {
   max-width: 210mm;
   width: 210mm;
   margin: 0 auto;
-  padding: 8mm 10mm;
+  padding: 6mm 8mm;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   min-height: 297mm;
-  height: 297mm;
-  overflow: hidden;
+  /* allow the container to grow with content instead of clipping */
   display: flex;
   flex-direction: column;
+  overflow: visible;
 }
 
 .header {
@@ -66,13 +66,13 @@ body {
 }
 
 section {
-  margin: 0.8rem 0;
+  margin: 0.45rem 0;
 }
 
 section h2 {
   color: #2c3e50;
-  margin-bottom: 0.6rem;
-  padding-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.2rem;
   border-bottom: 2px solid #3498db;
   font-size: 12pt;
   font-weight: 600;
@@ -106,9 +106,6 @@ section h2 {
   gap: 0.7rem;
 }
 
-.left-column {
-  justify-content: space-between;
-}
 
 .right-column {
   justify-content: flex-start;
@@ -120,7 +117,7 @@ section h2 {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.4rem;
+  gap: 0.5rem;
   padding-left: 0.5rem;
 }
 
@@ -132,17 +129,17 @@ section h2 {
   border-radius: 0;
   font-size: 9.5pt;
   position: relative;
-  padding-left: 0.6rem;
+  padding-left: 0.5rem;
 }
 
 .skills li:before,
 .languages li:before,
 .interests li:before {
-  content: "▸";
-  position: absolute;
+  content: "• ";
+  position: relative;
   left: 0;
   color: #3498db;
-  font-size: 9pt;
+  font-size: 9.5pt;
 }
 
 .proficiency {
@@ -154,7 +151,7 @@ section h2 {
 .job,
 .project,
 .edu-item {
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .job h3,
@@ -197,9 +194,9 @@ section h2 {
 
 .job li,
 .project li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
   position: relative;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .job li:before,
