@@ -9,6 +9,7 @@ body {
   line-height: 1.2;
   color: #333;
   background-color: #f5f5f5;
+  /* Compact font size for single-page layout - intentional design choice for fitting all content on one A4 page */
   font-size: 8pt;
 }
 
@@ -22,7 +23,6 @@ body {
   border-radius: 8px;
   min-height: 297mm;
   height: 297mm;
-  max-height: 297mm;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -243,7 +243,6 @@ section h2 {
     padding: 5mm 8mm;
     min-height: 297mm;
     height: 297mm;
-    max-height: 297mm;
     width: 210mm;
     page-break-after: avoid;
     overflow: hidden;
