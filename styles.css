@@ -6,18 +6,17 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #333;
   background-color: #f5f5f5;
-  /* Compact font size for single-page layout - intentional design choice for fitting all content on one A4 page */
-  font-size: 8pt;
+  font-size: 10pt;
 }
 
 .container {
   max-width: 210mm;
   width: 210mm;
   margin: 0 auto;
-  padding: 5mm 8mm;
+  padding: 8mm 10mm;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -30,35 +29,35 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 0.2rem;
-  padding: 0.1rem;
+  margin-bottom: 0.6rem;
+  padding: 0.2rem;
   border-bottom: 3px solid #3498db;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.5rem;
 }
 
 .header h1 {
   color: #2c3e50;
-  font-size: 18pt;
+  font-size: 24pt;
   font-weight: 700;
-  margin-bottom: 0.1rem;
-  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .title {
   color: #3498db;
-  font-size: 11pt;
+  font-size: 14pt;
   font-weight: 600;
-  margin: 0.1rem 0 0.2rem 0;
+  margin: 0.2rem 0 0.3rem 0;
 }
 
 .contact-info {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   align-items: center;
-  margin: 0.2rem 0 0 0;
-  font-size: 8pt;
+  margin: 0.3rem 0 0 0;
+  font-size: 10pt;
 }
 
 .separator {
@@ -67,25 +66,25 @@ body {
 }
 
 section {
-  margin: 0.25rem 0;
+  margin: 0.6rem 0;
 }
 
 section h2 {
   color: #2c3e50;
-  margin-bottom: 0.25rem;
-  padding-bottom: 0.15rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
   border-bottom: 2px solid #3498db;
-  font-size: 9pt;
+  font-size: 12pt;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .summary {
-  font-size: 8pt;
+  font-size: 10pt;
   color: #555;
-  line-height: 1.3;
-  margin-bottom: 0.3rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
 }
 
 .summary p {
@@ -95,7 +94,7 @@ section h2 {
 .two-column-layout {
   display: grid;
   grid-template-columns: 35% 65%;
-  gap: 1rem;
+  gap: 1.5rem;
   flex: 1;
   overflow: hidden;
 }
@@ -104,6 +103,15 @@ section h2 {
 .right-column {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+
+.left-column {
+  justify-content: space-between;
+}
+
+.right-column {
+  justify-content: flex-start;
 }
 
 .skills ul,
@@ -112,7 +120,7 @@ section h2 {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.15rem;
+  gap: 0.3rem;
   padding-left: 0.5rem;
 }
 
@@ -122,7 +130,7 @@ section h2 {
   background-color: transparent;
   padding: 0;
   border-radius: 0;
-  font-size: 7.5pt;
+  font-size: 9.5pt;
   position: relative;
   padding-left: 0.6rem;
 }
@@ -134,64 +142,64 @@ section h2 {
   position: absolute;
   left: 0;
   color: #3498db;
-  font-size: 7pt;
+  font-size: 9pt;
 }
 
 .proficiency {
   color: #7f8c8d;
   margin-left: 0.2rem;
-  font-size: 7pt;
+  font-size: 8.5pt;
 }
 
 .job,
 .project,
 .edu-item {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .job h3,
 .project h3 {
   color: #2c3e50;
-  margin-bottom: 0.15rem;
-  font-size: 8.5pt;
+  margin-bottom: 0.25rem;
+  font-size: 10.5pt;
   font-weight: 600;
 }
 
 .edu-item h3 {
   color: #2c3e50;
-  margin-bottom: 0.1rem;
-  font-size: 8pt;
+  margin-bottom: 0.15rem;
+  font-size: 10pt;
   font-weight: 600;
 }
 
 .job-info,
 .edu-info {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.5rem;
   color: #7f8c8d;
-  font-size: 7pt;
-  margin-bottom: 0.15rem;
+  font-size: 9pt;
+  margin-bottom: 0.25rem;
   flex-wrap: wrap;
 }
 
 .edu-detail {
   color: #7f8c8d;
-  font-size: 7pt;
-  margin-bottom: 0.1rem;
+  font-size: 9pt;
+  margin-bottom: 0.15rem;
 }
 
 .job ul,
 .project ul {
   list-style: none;
   padding-left: 0.8rem;
-  font-size: 7.5pt;
+  font-size: 9.5pt;
 }
 
 .job li,
 .project li {
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.3rem;
   position: relative;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .job li:before,
@@ -204,9 +212,9 @@ section h2 {
 
 .duration {
   color: #7f8c8d;
-  font-size: 7pt;
+  font-size: 9pt;
   display: block;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.25rem;
 }
 
 .info-label {
@@ -240,7 +248,7 @@ section h2 {
   .container {
     box-shadow: none;
     margin: 0;
-    padding: 5mm 8mm;
+    padding: 8mm 10mm;
     min-height: 297mm;
     height: 297mm;
     width: 210mm;
