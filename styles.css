@@ -6,87 +6,114 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.3;
+  line-height: 1.2;
   color: #333;
   background-color: #f5f5f5;
-  font-size: 10pt;
+  /* Compact font size for single-page layout - intentional design choice for fitting all content on one A4 page */
+  font-size: 8pt;
 }
 
 .container {
   max-width: 210mm;
   width: 210mm;
-  margin: 0 auto 10mm;
-  padding: 8mm 10mm;
+  margin: 0 auto;
+  padding: 5mm 8mm;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  page-break-after: always;
   min-height: 297mm;
-  height: auto;
-  overflow: visible;
-}
-
-.container:last-child {
-  page-break-after: avoid;
-  margin-bottom: 0;
+  height: 297mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 0.3rem;
-  padding: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding: 0.1rem;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.3rem;
 }
 
 .header h1 {
-  color: #000;
-  font-size: 22pt;
+  color: #2c3e50;
+  font-size: 18pt;
   font-weight: 700;
-  margin-bottom: 0.2rem;
-  letter-spacing: -0.5px;
+  margin-bottom: 0.1rem;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+.title {
+  color: #3498db;
+  font-size: 11pt;
+  font-weight: 600;
+  margin: 0.1rem 0 0.2rem 0;
 }
 
 .contact-info {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
-  margin: 0.3rem 0;
-  flex-wrap: wrap;
-  font-size: 9pt;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.2rem 0 0 0;
+  font-size: 8pt;
 }
 
-.title {
-  color: #000;
-  font-size: 13pt;
-  font-weight: 500;
-  margin: 0.3rem 0;
+.separator {
+  color: #3498db;
+  font-weight: bold;
 }
 
 section {
-  margin: 0.6rem 0;
+  margin: 0.25rem 0;
 }
 
 section h2 {
   color: #2c3e50;
-  margin-bottom: 0.4rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid #eee;
-  font-size: 11pt;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid #3498db;
+  font-size: 9pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .summary {
-  font-size: 9pt;
+  font-size: 8pt;
   color: #555;
   line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 1rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .skills ul,
 .languages ul,
 .interests ul {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15rem;
+  padding-left: 0.5rem;
 }
 
 .skills li,
@@ -95,48 +122,74 @@ section h2 {
   background-color: transparent;
   padding: 0;
   border-radius: 0;
-  font-size: 9pt;
+  font-size: 7.5pt;
+  position: relative;
+  padding-left: 0.6rem;
+}
+
+.skills li:before,
+.languages li:before,
+.interests li:before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-size: 7pt;
 }
 
 .proficiency {
   color: #7f8c8d;
-  margin-left: 0.3rem;
-  font-size: 8pt;
+  margin-left: 0.2rem;
+  font-size: 7pt;
 }
 
 .job,
 .project,
 .edu-item {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.4rem;
 }
 
 .job h3,
 .project h3 {
   color: #2c3e50;
-  margin-bottom: 0.3rem;
-  font-size: 10pt;
+  margin-bottom: 0.15rem;
+  font-size: 8.5pt;
+  font-weight: 600;
+}
+
+.edu-item h3 {
+  color: #2c3e50;
+  margin-bottom: 0.1rem;
+  font-size: 8pt;
+  font-weight: 600;
 }
 
 .job-info,
 .edu-info {
   display: flex;
-  gap: 0.7rem;
+  gap: 0.4rem;
   color: #7f8c8d;
-  font-size: 8pt;
-  margin-bottom: 0.3rem;
+  font-size: 7pt;
+  margin-bottom: 0.15rem;
   flex-wrap: wrap;
+}
+
+.edu-detail {
+  color: #7f8c8d;
+  font-size: 7pt;
+  margin-bottom: 0.1rem;
 }
 
 .job ul,
 .project ul {
   list-style: none;
-  padding-left: 1rem;
-  font-size: 9pt;
+  padding-left: 0.8rem;
+  font-size: 7.5pt;
 }
 
 .job li,
 .project li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.15rem;
   position: relative;
   line-height: 1.3;
 }
@@ -145,29 +198,21 @@ section h2 {
 .project li:before {
   content: "•";
   position: absolute;
-  left: -1rem;
+  left: -0.8rem;
   color: #3498db;
 }
 
 .duration {
   color: #7f8c8d;
-  font-size: 8pt;
+  font-size: 7pt;
   display: block;
-  margin-bottom: 0.3rem;
-}
-
-.contact-info p {
-  margin: 0;
-  color: #6c757d;
-  font-size: 9pt;
-  display: flex;
-  align-items: center;
+  margin-bottom: 0.15rem;
 }
 
 .info-label {
   font-weight: 600;
   color: #2c3e50;
-  margin-right: 0.5rem;
+  margin-right: 0.2rem;
 }
 
 .contact-info a {
@@ -194,18 +239,13 @@ section h2 {
 
   .container {
     box-shadow: none;
-    margin: 0 auto 10mm;
-    padding: 8mm 10mm;
+    margin: 0;
+    padding: 5mm 8mm;
     min-height: 297mm;
-    height: auto;
+    height: 297mm;
     width: 210mm;
-    page-break-after: always;
-    overflow: visible;
-  }
-
-  .container:last-child {
     page-break-after: avoid;
-    margin-bottom: 0;
+    overflow: hidden;
   }
 
   .download-buttons {
@@ -217,10 +257,16 @@ section h2 {
   .container {
     margin: 1rem;
     padding: 1rem;
+    height: auto;
+    max-height: none;
   }
 
   .header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .two-column-layout {
+    grid-template-columns: 1fr;
   }
 
   .job-info,
