@@ -58,12 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
         height: page1.scrollHeight,
       });
 
-      // Fit to A4 page size
+      // Fit to A4 page size while maintaining aspect ratio
       const imgWidth = pageWidth;
-      const imgHeight = pageHeight;
+      const imgHeight = (canvas1.height * pageWidth) / canvas1.width;
+      
+      // If height exceeds A4 page, scale to fit
+      let finalWidth = imgWidth;
+      let finalHeight = imgHeight;
+      if (imgHeight > pageHeight) {
+        finalHeight = pageHeight;
+        finalWidth = (canvas1.width * pageHeight) / canvas1.height;
+      }
 
       const imgData1 = canvas1.toDataURL("image/png", 1.0);
-      pdf.addImage(imgData1, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.addImage(imgData1, "PNG", 0, 0, finalWidth, finalHeight);
 
       // Second page
       const page2 = document.getElementById("resume-page2");
@@ -80,7 +88,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const imgData2 = canvas2.toDataURL("image/png", 1.0);
       pdf.addPage();
-      pdf.addImage(imgData2, "PNG", 0, 0, imgWidth, imgHeight);
+      
+      // Calculate dimensions for page 2
+      const imgWidth2 = pageWidth;
+      const imgHeight2 = (canvas2.height * pageWidth) / canvas2.width;
+      
+      let finalWidth2 = imgWidth2;
+      let finalHeight2 = imgHeight2;
+      if (imgHeight2 > pageHeight) {
+        finalHeight2 = pageHeight;
+        finalWidth2 = (canvas2.width * pageHeight) / canvas2.height;
+      }
+      
+      pdf.addImage(imgData2, "PNG", 0, 0, finalWidth2, finalHeight2);
 
       // Save PDF
       pdf.save("Parmar_Raj_Resume.pdf");
