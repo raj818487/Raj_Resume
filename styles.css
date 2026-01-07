@@ -15,31 +15,26 @@ body {
 .container {
   max-width: 210mm;
   width: 210mm;
-  margin: 0 auto 20mm;
-  padding: 5mm 10mm;
+  margin: 0 auto;
+  padding: 8mm 12mm;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  page-break-after: always;
+  page-break-after: avoid;
   min-height: 297mm;
   height: auto;
   overflow: visible;
 }
 
-.container:last-child {
-  page-break-after: avoid;
-  margin-bottom: 0;
-}
-
 .header {
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   padding: 0.5rem;
 }
 
 .header h1 {
   color: #000;
-  font-size: 28pt;
+  font-size: 26pt;
   font-weight: 700;
   margin-bottom: 0.25rem;
   letter-spacing: -1px;
@@ -63,15 +58,15 @@ body {
 }
 
 section {
-  margin: 1.25rem 0;
+  margin: 0.85rem 0;
 }
 
 section h2 {
   color: #2c3e50;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
   border-bottom: 2px solid #eee;
-  font-size: 14pt;
+  font-size: 13pt;
 }
 
 .summary {
@@ -107,7 +102,7 @@ section h2 {
 .job,
 .project,
 .edu-item {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .job h3,
@@ -136,9 +131,9 @@ section h2 {
 
 .job li,
 .project li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
   position: relative;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .job li:before,
@@ -194,18 +189,13 @@ section h2 {
 
   .container {
     box-shadow: none;
-    margin: 0 auto 20mm;
-    padding: 5mm 10mm;
+    margin: 0 auto;
+    padding: 8mm 12mm;
     min-height: 297mm;
     height: auto;
     width: 210mm;
-    page-break-after: always;
-    overflow: visible;
-  }
-
-  .container:last-child {
     page-break-after: avoid;
-    margin-bottom: 0;
+    overflow: visible;
   }
 
   .download-buttons {
