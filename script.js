@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Get the single page resume content
       const resumeContent = document.getElementById("resume-content");
       const canvas = await html2canvas(resumeContent, {
-        scale: 2,
+        scale: 4,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
